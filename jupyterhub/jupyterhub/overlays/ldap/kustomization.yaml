@@ -4,7 +4,7 @@ bases:
 - ../../base
 
 resources:
-- jupyterhub-imagestream.yam 
+- jupyterhub-imagestream.yaml
 - jupyterhub-buildconfig.yaml
 
 #resources:
