@@ -1,18 +1,24 @@
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
-    - name: LDAP_HOST
-      valueFrom:
-        configMapKeyRef:
-          name: jupyterhub-cfg
-          key: ldap.host
-    - name: LDAP_BIND_DN_DC
-      valueFrom:
-        configMapKeyRef:
-          name: jupyterhub-cfg
-          key: ldap.bind.dc
-    - name: LDAP_USER
-      valueFrom:
-        configMapKeyRef:
-          name: jupyterhub-cfg
-          key: ldap.user
+    name: LDAP_HOST
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-cfg
+        key: ldap.host
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_BIND_DN_DC
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-cfg
+        key: ldap.bind.dc
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_USER
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-cfg
+        key: ldap.user
