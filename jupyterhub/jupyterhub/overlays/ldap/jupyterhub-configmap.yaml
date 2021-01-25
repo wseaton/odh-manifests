@@ -1,12 +1,9 @@
 - op: add
-  path: /data
-  value: 
-     ldap.bind.dc: ""
+  path: /data/ldap.bind.dc
+  value: ""
 - op: add
-  path: /data
-  value: 
-     ldap.host: ""
+  path: /data/ldap.host
+  value: ""
 - op: add
-  path: /data
-  value: 
-     ldap.user: "" 
+  path: /data/ldap.user
+  value: "" 
