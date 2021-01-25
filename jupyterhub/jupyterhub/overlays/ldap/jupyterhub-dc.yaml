@@ -22,3 +22,11 @@
       configMapKeyRef:
         name: jupyterhub-cfg
         key: ldap.user
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: jupyterhub
+        key: LDAP_PASSWORD 
