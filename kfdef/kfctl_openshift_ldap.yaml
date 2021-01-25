@@ -1,8 +1,8 @@
 apiVersion: kfdef.apps.kubeflow.org/v1
 kind: KfDef
 metadata:
-  name: opendatahub
-  namespace: opendatahub
+  name: opendatahub-ldap
+  namespace: edaodhdev 
 spec:
   applications:
   - kustomizeConfig:
@@ -10,7 +10,7 @@ spec:
         name: manifests
         path: odh-common
     name: odh-common
-  #Note: AI Library components requires seldon do be deployed first, make sure to place seldon before AIlibrary
+  # Note: AI Library components requires seldon do be deployed first, make sure to place seldon before AIlibrary
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -86,7 +86,6 @@ spec:
     name: jupyterhub
   - kustomizeConfig:
       overlays:
-      #- cuda
       - additional
       repoRef:
         name: manifests
@@ -121,5 +120,5 @@ spec:
   - name: kf-manifests
     uri: https://github.com/opendatahub-io/manifests/tarball/v1.0-branch-openshift
   - name: manifests
-    uri: https://github.com/opendatahub-io/odh-manifests/tarball/v0.9.0
-  version: v0.7-branch-openshift
+    uri: https://github.com/wseaton/odh-manifests/tarball/feature/ldap-overlay
+  version: feature/ldap-overlay

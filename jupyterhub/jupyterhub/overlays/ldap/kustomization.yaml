@@ -2,12 +2,40 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
 - ../../base
-resources:
-- jupyterhub-imagestream.yaml
-- jupyterhub-buildconfig.yaml
-- jupyterhub-dh-buildconfig.yaml
-- jupyterhub-configmap.yaml
-- jupyterhub-dc.yaml
+
+#resources:
+patchesJson6902:
+- target:
+    group: apps.openshift.io
+    kind: BuildConfig
+    name: jupyterhub-img
+    version: v1
+  path: jupyterhub-dh-buildconfig.yaml
+- target:
+    group: apps.openshift.io
+    kind: ImageStream
+    version: v1
+    name: jupyterhub
+  path: jupyterhub-imagestream.yaml
+- target:
+    group: apps.openshift.io
+    kind: BuildConfig
+    version: v1
+    name: jupyterhub
+  path: jupyterhub-buildconfig.yaml
+- target:
+    group: apps.openshift.io
+    kind: ConfigMap
+    version: v1
+    name: jupyterhub-cfg
+  path: jupyterhub-configmap.yaml
+- target:
+    group: apps.openshift.io
+    kind: DeploymentConfig
+    version: v1
+    name: jupyterhub
+  path: jupyterhub-dc.yaml
+
 
 commonLabels:
   opendatahub.io/component: "true"
