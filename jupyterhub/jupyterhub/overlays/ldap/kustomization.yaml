@@ -5,7 +5,6 @@ bases:
 
 resources:
 - jupyterhub-imagestream.yaml
-- jupyterhub-buildconfig.yaml
 - jupyterhub-dh-buildconfig.yaml
 
 #resources:
