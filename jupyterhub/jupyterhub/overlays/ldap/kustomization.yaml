@@ -6,15 +6,10 @@ bases:
 resources:
 - jupyterhub-imagestream.yaml
 - jupyterhub-buildconfig.yaml
+- jupyterhub-dh-buildconfig.yaml
 
 #resources:
 patchesJson6902:
-- target:
-    group: build.openshift.io
-    kind: BuildConfig
-    name: jupyterhub-img
-    version: v1
-  path: jupyterhub-dh-buildconfig.yaml
 - target:
     kind: ConfigMap
     version: v1
