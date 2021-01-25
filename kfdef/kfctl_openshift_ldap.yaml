@@ -9,23 +9,6 @@ spec:
         name: manifests
         path: odh-common
     name: odh-common
-  # Note: AI Library components requires seldon do be deployed first, make sure to place seldon before AIlibrary
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odhseldon/cluster
-    name: odhseldon
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: ai-library/cluster
-    name: ai-library-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: ai-library/operator
-    # Note:  In order to utilize ai-library, you also need to have Seldon installed
-    name: ai-library-operator
   - kustomizeConfig:
       parameters:
       # Note: The admin username is admin
@@ -35,19 +18,6 @@ spec:
         name: manifests
         path: superset
     name: superset
-  - kustomizeConfig:
-      parameters:
-      - name: namespace
-        value: openshift-operators
-      repoRef:
-        name: manifests
-        path: kafka/cluster
-    name: strimzi-operator
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: kafka/kafka
-    name: kafka-cluster
   - kustomizeConfig:
       repoRef:
         name: manifests
@@ -100,16 +70,6 @@ spec:
         name: manifests
         path: airflow/cluster
     name: airflow-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odhargo/cluster
-    name: odhargo-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: odhargo/odhargo
-    name: odhargo
   - kustomizeConfig:
       repoRef:
         name: manifests
