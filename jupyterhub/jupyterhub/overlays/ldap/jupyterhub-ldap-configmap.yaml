@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jupyterhub-ldap
+data:
+  ldap.bind.dc:
+  ldap.host:
+  ldap.user: 

@@ -4,7 +4,7 @@
     name: LDAP_HOST
     valueFrom:
       configMapKeyRef:
-        name: jupyterhub-cfg
+        name: jupyterhub-ldap 
         key: ldap.host
 - op: add
   path: /spec/template/spec/containers/0/env/-
@@ -12,7 +12,7 @@
     name: LDAP_BIND_DN_DC
     valueFrom:
       configMapKeyRef:
-        name: jupyterhub-cfg
+        name: jupyterhub-ldap 
         key: ldap.bind.dc
 - op: add
   path: /spec/template/spec/containers/0/env/-
@@ -20,7 +20,7 @@
     name: LDAP_USER
     valueFrom:
       configMapKeyRef:
-        name: jupyterhub-cfg
+        name: jupyterhub-ldap 
         key: ldap.user
 - op: add
   path: /spec/template/spec/containers/0/env/-
@@ -28,5 +28,5 @@
     name: LDAP_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: jupyterhub
-        key: LDAP_PASSWORD 
+        name: $(ldap_secret)
+        key: password 

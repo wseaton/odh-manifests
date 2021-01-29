@@ -2,3 +2,4 @@ kfdef/.cache/
 kfdef/kustomize/
 tests/kubeconfig
 .idea
+odh-manifests.tar.gz

@@ -6,19 +6,10 @@ bases:
 resources:
 - jupyterhub-imagestream.yaml
 - jupyterhub-dh-buildconfig.yaml
+- jupyterhub-ldap-configmap.yaml
 
 #resources:
 patchesJson6902:
-- target:
-    kind: Secret
-    version: v1
-    name: jupyterhub
-  path: jupyterhub-secret.yaml
-- target:
-    kind: ConfigMap
-    version: v1
-    name: jupyterhub-cfg
-  path: jupyterhub-configmap.yaml
 - target:
     group: apps.openshift.io
     kind: DeploymentConfig
