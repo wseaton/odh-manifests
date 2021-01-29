@@ -3,16 +3,16 @@
   value: 
     name: LDAP_HOST
     valueFrom:
-      secretKeyRef:
-        name: jupyterhub-ldap-secret
+      configMapKeyRef:
+        name: jupyterhub-ldap
         key: LDAP_HOST 
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
     name: LDAP_BIND_DN_DC
     valueFrom:
-      secretKeyRef:
-        name: jupyterhub-ldap-secret
+      configMapKeyRef:
+        name: jupyterhub-ldap
         key: LDAP_BIND_DN_DC 
 - op: add
   path: /spec/template/spec/containers/0/env/-
@@ -20,7 +20,7 @@
     name: LDAP_USER
     valueFrom:
       secretKeyRef:
-        name: jupyterhub-ldap-secret
+        name: $(ldap_credentials_secret)
         key: LDAP_USER 
 - op: add
   path: /spec/template/spec/containers/0/env/-
@@ -28,5 +28,37 @@
     name: LDAP_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: jupyterhub-ldap-secret
-        key: LDAP_PASSWORD 
+        name: $(ldap_credentials_secret)
+        key: LDAP_PASSWORD
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_USE_SSL
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-ldap
+        key: LDAP_USE_SS
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: JUPYTERHUB_AUTH_STATE
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-ldap
+        key: JUPYTERHUB_AUTH_STATE 
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_AUTH_STATE_ATTR
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-ldap
+        key: LDAP_AUTH_STATE_ATTR
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_ALLOWED_GROUPS
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-ldap
+        key: LDAP_ALLOWED_GROUPS 
