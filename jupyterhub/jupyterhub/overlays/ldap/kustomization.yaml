@@ -19,6 +19,8 @@ patchesJson6902:
 secretGenerator:
 - name: jupyterhub-ldap-secret
   env: params.env
+generatorOptions:
+  disableNameSuffixHash: true
 
 commonLabels:
   opendatahub.io/component: "true"
