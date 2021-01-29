@@ -1,4 +1,4 @@
 ---
 varReference:
   - path: spec/template/spec/containers[]/env[]/valueFrom/secretKeyRef/name
-    kind: Deployment
+    kind: DeploymentConfig
