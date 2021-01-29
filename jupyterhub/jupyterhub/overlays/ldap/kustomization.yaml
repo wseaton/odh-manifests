@@ -6,8 +6,6 @@ bases:
 resources:
 - jupyterhub-imagestream.yaml
 - jupyterhub-dh-buildconfig.yaml
-- jupyterhub-ldap-configmap.yaml
-
 #resources:
 patchesJson6902:
 - target:
@@ -17,6 +15,10 @@ patchesJson6902:
     name: jupyterhub
   path: jupyterhub-dc.yaml
 
+
+secretGenerator:
+- name: jupyterhub-ldap-secret
+  env: params.env
 
 commonLabels:
   opendatahub.io/component: "true"

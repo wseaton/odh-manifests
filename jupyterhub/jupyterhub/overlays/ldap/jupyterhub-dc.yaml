@@ -3,30 +3,30 @@
   value: 
     name: LDAP_HOST
     valueFrom:
-      configMapKeyRef:
-        name: jupyterhub-ldap 
-        key: ldap.host
+      secretKeyRef:
+        name: jupyterhub-ldap-secret
+        key: LDAP_HOST 
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
     name: LDAP_BIND_DN_DC
     valueFrom:
-      configMapKeyRef:
-        name: jupyterhub-ldap 
-        key: ldap.bind.dc
+      secretKeyRef:
+        name: jupyterhub-ldap-secret
+        key: LDAP_BIND_DN_DC 
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
     name: LDAP_USER
     valueFrom:
-      configMapKeyRef:
-        name: jupyterhub-ldap 
-        key: ldap.user
+      secretKeyRef:
+        name: jupyterhub-ldap-secret
+        key: LDAP_USER 
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
     name: LDAP_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: "$(ldap_secret)"
-        key: password 
+        name: jupyterhub-ldap-secret
+        key: LDAP_PASSWORD 
