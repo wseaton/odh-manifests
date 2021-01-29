@@ -21,7 +21,7 @@
     valueFrom:
       secretKeyRef:
         name: $(ldap_credentials_secret)
-        key: LDAP_USER 
+        key: username 
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
@@ -29,7 +29,7 @@
     valueFrom:
       secretKeyRef:
         name: $(ldap_credentials_secret)
-        key: LDAP_PASSWORD
+        key: password
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
