@@ -28,5 +28,5 @@
     name: LDAP_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: $(ldap_secret)
+        name: "$(ldap_secret)"
         key: password 
