@@ -37,7 +37,7 @@
     valueFrom:
       configMapKeyRef:
         name: jupyterhub-ldap
-        key: LDAP_USE_SS
+        key: LDAP_USE_SSL
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
