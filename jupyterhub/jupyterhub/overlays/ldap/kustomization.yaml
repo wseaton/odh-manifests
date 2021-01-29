@@ -15,12 +15,67 @@ patchesJson6902:
     name: jupyterhub
   path: jupyterhub-dc.yaml
 
-
-secretGenerator:
-- name: jupyterhub-ldap-secret
-  env: params.env
 generatorOptions:
   disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: jupyterhub-ldap
+    envs:
+      - params.env
+
+vars:
+  - name: LDAP_BIND_DN_DC
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap
+    fieldref:
+      fieldpath: data.LDAP_BIND_DN_DC
+  - name: LDAP_HOST
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.LDAP_HOST
+  - name: LDAP_USE_SSL
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.LDAP_USE_SSL
+  - name: LDAP_ALLOWED_GROUPS
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.LDAP_ALLOWED_GROUPS
+  - name: JUPYTERHUB_AUTH_STATE
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.JUPYTERHUB_AUTH_STATE
+  - name: LDAP_AUTH_STATE_ATTR
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.LDAP_AUTH_STATE_ATTR
+  - name: ldap_credentials_secret
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.ldap_credentials_secret
+
+configurations:
+  - params.yaml
 
 commonLabels:
   opendatahub.io/component: "true"
