@@ -61,4 +61,20 @@
     valueFrom:
       configMapKeyRef:
         name: jupyterhub-ldap
-        key: LDAP_ALLOWED_GROUPS 
+        key: LDAP_ALLOWED_GROUPS
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: CONFIGPROXY_AUTH_TOKEN
+    valueFrom:
+      secretKeyRef:
+        name: $(jupyterhub_internal_secret)
+        key: CONFIGPROXY_AUTH_TOKEN 
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: JPY_COOKIE_SECRET
+    valueFrom:
+      secretKeyRef:
+        name: $(jupyterhub_internal_secret)
+        key: JPY_COOKIE_SECRET

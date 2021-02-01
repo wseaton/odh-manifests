@@ -73,6 +73,14 @@ vars:
       name: jupyterhub-ldap 
     fieldref:
       fieldpath: data.ldap_credentials_secret
+  - name: jupyterhub_internal_secret
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.jupyterhub_internal_secret
+
 
 configurations:
   - params.yaml
