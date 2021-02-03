@@ -6,6 +6,9 @@ bases:
 resources:
 - jupyterhub-imagestream.yaml
 - jupyterhub-dh-buildconfig.yaml
+- jupyterhub-internal-sample-secret.yaml
+- jupyterhub-ldap-sample-secret.yaml
+- ldap-role-mount-sample-config-map.yaml
 #resources:
 patchesJson6902:
 - target:
@@ -80,6 +83,13 @@ vars:
       name: jupyterhub-ldap 
     fieldref:
       fieldpath: data.jupyterhub_internal_secret
+  - name: ldap_role_mount_configmap
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-ldap 
+    fieldref:
+      fieldpath: data.ldap_role_mount_configmap
 
 
 configurations:

@@ -78,3 +78,23 @@
       secretKeyRef:
         name: $(jupyterhub_internal_secret)
         key: JPY_COOKIE_SECRET
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: LDAP_SECRET_MOUNT
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-ldap
+        key: LDAP_SECRET_MOUNT
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value: 
+    mountPath: /opt/app-root/ldap
+    name: rolemapping
+- op: add
+  path: /spec/template/spec/volumes/-
+  value: 
+    configMap:
+      defaultMode: 420
+      name: $(ldap_role_mount_configmap)
+    name: rolemapping

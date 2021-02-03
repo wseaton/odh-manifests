@@ -18,7 +18,7 @@ spec:
   validation:
     openAPIV3Schema:
       description: AirflowCluster represents the Airflow Scheduler and workers for
-        a single DAG folder function. At a minimum they need a SQL service (MySQL
+        a single DAG folder function. At a minimum they need a SQL servic-uate (MySQL
         or SQLProxy) and Airflow UI. In addition for an installation with minimal
         external dependencies, NFS and Airflow UI are also added.
       properties:

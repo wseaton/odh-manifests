@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: jupyterhub
+  name: ldap-role-mount-sample-config-map
+data:
+  rolemapping.yaml: |
+    secret1:
+    - group1
+    - group2
+    secret2:
+    - group3
+    - group4
