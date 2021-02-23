@@ -60,23 +60,31 @@ data:
         resources:
           requests:
             memory: 1Gi
-            cpu: 1
+            cpu: 0.5
           limits:
             memory: 2Gi
-            cpu: 2
+            cpu: 1
       - name: Medium
         resources:
           requests:
             memory: 2Gi
-            cpu: 2
+            cpu: 1
           limits:
             memory: 4Gi
-            cpu: 4
+            cpu: 2
       - name: Large
         resources:
           requests:
             memory: 4Gi
-            cpu: 4
+            cpu: 2
           limits:
             memory: 8Gi
+            cpu: 4
+      - name: Extra Large
+        resources:
+          requests:
+            memory: 8Gi
+            cpu: 4
+          limits:
+            memory: 16Gi
             cpu: 8
