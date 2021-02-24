@@ -81,6 +81,14 @@
 - op: add
   path: /spec/template/spec/containers/0/env/-
   value: 
+    name: JUPYTERHUB_CRYPT_KEY
+    valueFrom:
+      secretKeyRef:
+        name: $(jupyterhub_internal_secret)
+        key: JUPYTERHUB_CRYPT_KEY
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
     name: LDAP_SECRET_MOUNT
     valueFrom:
       configMapKeyRef:
