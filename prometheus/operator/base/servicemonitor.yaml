@@ -8,4 +8,12 @@ metadata:
 spec:
   selector: {}
   endpoints:
-    - port: web
+    - port: web # odh-operator, Argo
+    - bearerTokenSecret:
+        key: PROMETHEUS_API_TOKEN
+        name: jupyterhub
+      port: 8080-tcp # Jupyterhub
+      path: "/metrics"
+  selector:
+    matchLabels:
+      opendatahub.io/component: "true"
