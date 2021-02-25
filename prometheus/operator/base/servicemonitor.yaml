@@ -6,7 +6,6 @@ metadata:
     team: opendatahub
   namespace: opendatahub
 spec:
-  selector: {}
   endpoints:
     - port: web # odh-operator, Argo
     - bearerTokenSecret:
