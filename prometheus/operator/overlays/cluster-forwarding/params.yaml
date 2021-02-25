@@ -1,7 +1,3 @@
-varReference:
-- path: roleRef/namespace
-  kind: RoleBinding
-  apiGroup: authorization.openshift.io
 - path: subjects/0/namespace
   kind: RoleBinding
   apiGroup: authorization.openshift.io

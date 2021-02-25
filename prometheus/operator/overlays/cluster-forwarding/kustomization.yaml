@@ -5,3 +5,6 @@ bases:
 
 resources:
 - cluster-metrics-servicemonitor.yaml
+- clusterrole.yaml
+- clusterrolebinding.yaml
+- secret.yaml
