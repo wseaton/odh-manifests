@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: quay.io/wseaton/airflow-operator
-  newTag: git-sync-update
+  newTag: openshift-3-rebase
