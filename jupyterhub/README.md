@@ -21,6 +21,10 @@ HTTP endpoint exposed by your S3 object storage solution which will be made avai
 
 Name of the storage class to be used for PVCs created by JupyterHub component. This requires `storage-class` **overlay** to be enabled as well to work.
 
+#### jupyterhub_groups_config
+
+A ConfigMap containing comma separated lists of groups which would be used as Admin and User groups for JupyterHub. The default ConfgiMap can be found [here](jupyterhub/base/jupyterhub-groups-configmap.yaml).
+
 ##### Examples
 
 ```
@@ -41,7 +45,7 @@ Name of the storage class to be used for PVCs created by JupyterHub component. T
 
 ### Overlays
 
-JupyterHub component comes with 2 overlays.
+JupyterHub component comes with 3 overlays.
 
 #### build
 
@@ -50,6 +54,10 @@ Contains build manifests for JupyterHub images.
 #### storage-class
 
 Customizes JupyterHub to use a specific `StorageClass` for PVCs, see `storage_class` parameter.
+
+#### trigger-imagechange
+
+Adds an `imageChange` trigger to the JupyterHub DeploymentConfig to enable automatic redeployment of the JupterHub server when the `jupyterhub-img` `ImagestreamTag` is updated
 
 ## Notebook Images
 

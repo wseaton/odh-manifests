@@ -1,5 +1,7 @@
 kfdef/.cache/
 kfdef/kustomize/
 tests/kubeconfig
+tests/artifacts
 .idea
 odh-manifests.tar.gz
+.vscode/settings.json
