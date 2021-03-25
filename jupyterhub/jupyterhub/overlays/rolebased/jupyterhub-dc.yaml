@@ -2,7 +2,7 @@
   path: /spec/template/spec/containers/0/env/-
   value: 
     name: JUPYTERHUB_ALLOWED_GROUPS
-    value:
+    valueFrom:
       configMapKeyRef:
         name: jupyterhub-rbac
         key: allowed_groups 
