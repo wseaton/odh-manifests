@@ -1,0 +1,28 @@
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: JUPYTERHUB_ALLOWED_GROUPS
+    value:
+      configMapKeyRef:
+        name: jupyterhub-rbac
+        key: allowed_groups 
+- op: add
+  path: /spec/template/spec/containers/0/env/-
+  value: 
+    name: JUPYTERHUB_ADMIN_GROUPS
+    valueFrom:
+      configMapKeyRef:
+        name: jupyterhub-rbac
+        key: admin_groups 
+- op: add
+  path: /spec/template/spec/containers/0/volumeMounts/-
+  value: 
+    mountPath: /opt/app-root/rbac
+    name: rolemapping
+- op: add
+  path: /spec/template/spec/volumes/-
+  value: 
+    configMap:
+      defaultMode: 420
+      name: $(role_mount_configmap)
+    name: rolemapping

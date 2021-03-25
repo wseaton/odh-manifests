@@ -1,0 +1,4 @@
+---
+varReference:
+  - path: spec/template/spec/volumes[]/configMap/name
+    kind: DeploymentConfig
