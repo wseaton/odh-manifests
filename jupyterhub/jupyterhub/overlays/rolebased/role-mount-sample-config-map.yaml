@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: jupyterhub
-  name: ldap-role-mount-sample-config-map
+  name: role-mount-sample-config-map
 data:
   rolemapping.yaml: |
     secret1:

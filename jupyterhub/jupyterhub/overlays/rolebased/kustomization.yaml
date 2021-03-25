@@ -6,7 +6,7 @@ bases:
 resources:
 - jupyterhub-imagestream.yaml
 - jupyterhub-dh-buildconfig.yaml
-- ldap-role-mount-sample-config-map.yaml
+- role-mount-sample-config-map.yaml
 #resources:
 patchesJson6902:
 - target:
