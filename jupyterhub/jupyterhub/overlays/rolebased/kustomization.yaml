@@ -23,6 +23,14 @@ configMapGenerator:
   - name: jupyterhub-rbac
     envs:
       - params.env
+vars:
+  - name: role_mount_configmap
+    objref:
+      kind: ConfigMap
+      apiVersion: v1
+      name: jupyterhub-rbac
+    fieldref:
+      fieldpath: data.role_mount_configmap
 
 
 configurations:
