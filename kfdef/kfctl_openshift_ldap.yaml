@@ -10,45 +10,15 @@ spec:
         path: odh-common
     name: odh-common
   - kustomizeConfig:
-      parameters:
-      # Note: The admin username is admin
-      - name: SUPERSET_ADMIN_PASSWORD
-        value: admin
-      repoRef:
-        name: manifests
-        path: superset
-    name: superset
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: grafana/cluster
-    name: grafana-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: grafana/grafana
-    name: grafana-instance
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: radanalyticsio/spark/cluster
-    name: radanalyticsio-spark-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: prometheus/cluster
-    name: prometheus-cluster
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: prometheus/operator
-    name: prometheus-operator
-  - kustomizeConfig:
       overlays:
-      - ldap
+      - rolebased
       parameters:
         - name: s3_endpoint_url
-          value: "s3.odh.com"
+          value: s3-us-west-2.amazonaws
+        - name: jupyterhub_groups_config
+          value: jhubgroups
+        - name: role_mount_configmap
+          value: ldap-role-mount
       repoRef:
         name: manifests
         path: jupyterhub/jupyterhub
@@ -60,16 +30,6 @@ spec:
         name: manifests
         path: jupyterhub/notebook-images
     name: notebook-images
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: airflow/operator
-    name: airflow-operator
-  - kustomizeConfig:
-      repoRef:
-        name: manifests
-        path: airflow/cluster
-    name: airflow-cluster
   - kustomizeConfig:
       repoRef:
         name: manifests
