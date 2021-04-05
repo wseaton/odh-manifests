@@ -79,5 +79,5 @@ spec:
   - name: kf-manifests
     uri: https://github.com/opendatahub-io/manifests/tarball/v1.0-branch-openshift
   - name: manifests
-    uri: https://github.com/wseaton/odh-manifests/tarball/feature/ldap-overlay
-  version: feature/ldap-overlay
+    uri: https://github.com/wseaton/odh-manifests/tarball/rebase-branch
+  version: rebase-branch
