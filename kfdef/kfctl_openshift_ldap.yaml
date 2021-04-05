@@ -11,14 +11,10 @@ spec:
     name: odh-common
   - kustomizeConfig:
       overlays:
-      - rolebased
+      - ldap
       parameters:
         - name: s3_endpoint_url
-          value: s3-us-west-2.amazonaws
-        - name: jupyterhub_groups_config
-          value: jhubgroups
-        - name: role_mount_configmap
-          value: ldap-role-mount
+          value: "s3.odh.com"
       repoRef:
         name: manifests
         path: jupyterhub/jupyterhub
