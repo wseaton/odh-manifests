@@ -6,12 +6,12 @@ metadata:
 spec:
   lookupPolicy:
     local: true
-  tags:
-    - annotations:
-        openshift.io/imported-from: quay.io/odh-jupyterhub/jupyterhub
-      from:
-        kind: DockerImage
-        name: quay.io/odh-jupyterhub/jupyterhub:v3.5.1
-      name: latest
-      referencePolicy:
-        type: Source
+#   tags:
+#     - annotations:
+#         openshift.io/imported-from: quay.io/odh-jupyterhub/jupyterhub
+#       from:
+#         kind: DockerImage
+#         name: quay.io/odh-jupyterhub/jupyterhub:v3.5.1
+#       name: latest
+#       referencePolicy:
+#         type: Source
