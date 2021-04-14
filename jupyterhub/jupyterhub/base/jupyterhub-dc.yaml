@@ -29,6 +29,8 @@ spec:
       - env:
         - name: JUPYTERHUB_SERVICE_NAME
           value: jupyterhub
+        - name: JUPYTERHUB_ROUTE_NAME
+          value: $(jupyterhub_route)
         - name: JUPYTERHUB_DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:

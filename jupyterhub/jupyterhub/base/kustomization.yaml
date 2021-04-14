@@ -62,5 +62,12 @@ vars:
     apiVersion: v1
   fieldref:
     fieldpath: data.jupyterhub_secret
+- name: jupyterhub_route
+  objref:
+    kind: ConfigMap
+    name: parameters
+    apiVersion: v1
+  fieldref:
+    fieldpath: data.jupyterhub_route
 configurations:
 - params.yaml
