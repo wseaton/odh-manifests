@@ -29,7 +29,7 @@ spec:
       - env:
         - name: JUPYTERHUB_SERVICE_NAME
           value: jupyterhub
-        - name: JUPYTERHUB_ROUTE_NAME
+        - name: JUPYTERHUB_CUSTOM_ROUTE
           value: $(jupyterhub_route)
         - name: JUPYTERHUB_DATABASE_PASSWORD
           valueFrom:
