@@ -12,7 +12,6 @@ spec:
   source:
     git:
       uri: https://github.com/wseaton/jupyterhub-odh.git
-      ref: customroute
     type: Git
   strategy:
     sourceStrategy:
