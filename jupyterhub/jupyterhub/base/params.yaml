@@ -12,3 +12,5 @@ varReference:
   kind: DeploymentConfig
 - path: spec/template/spec/containers/env/value
   kind: DeploymentConfig
+- path: metadata/annotations/serviceaccounts.openshift.io\/oauth-redirectreference.first
+  kind: ServiceAccount
